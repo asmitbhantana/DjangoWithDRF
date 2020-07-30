@@ -1,0 +1,15 @@
+<html>
+<head>
+    <title>Create Status</title>
+</head>
+<body>
+<h1>Create Status!</h1>
+<form method="post" action={% url "statusapp:create" %}>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create</button>
+</form>
+
+
+</body>
+</html>

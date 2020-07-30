@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+</head>
+<body>
+<br>
+<br>
+<h1>Detail Of User Hello</h1>
+<p>First Name: {{ usr_object.first_name }}</p>
+<p>Middle Name: {{ usr_object.middle_name }}</p>
+<p>Last Name: {{ usr_object.last_name }}</p>
+<p>Email : {{ usr_object.email }}</p>
+<p>Date Of birth: {{ usr_object.dob }}</p>
+<a href={% url "classbased:list" %}>List</a>
+{#<p>Hello Wolrd</p>#}
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Info List</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Last Name</th>
+        <th>Email Name</th>
+    </tr>
+
+    {% for u in data  %}
+    <tr>
+        <td>{{ u.id }}</td>
+        <td>{{ u.first_name }}</td>
+        <td>
+            {% if u.middle_name %}
+                {{ u.middle_name }}
+            {% else %}
+                -
+            {% endif %}
+        </td>
+        <td>{{ u.last_name }}</td>
+        <td>{{ u.email }}</td>
+        <td><a href={% url 'classbased:detail' u.id %}>Detail</a></td>
+        <td><a href={% url 'classbased:update' u.id %}>Update</a></td>
+        <td>
+            <form action= {% url 'classbased:delete' u.id %} id="deleteForm" method="post">
+                {% csrf_token %}
+                <a href="#" onclick="document.getElementById('deleteForm').submit()">Delete</a>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+    <a href={% url 'classbased:create' %}
+               style="padding: 15px; background: red; color: white; position: absolute; left: 20px; top: 200px; right: 60px; align-content: center; text-align: center;" >
+    Create User</a>
+</table>
+</body>
+</html>
